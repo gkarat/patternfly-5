@@ -1,0 +1,26 @@
+.pf-v5-screen-reader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.pf-v5-screen-reader.pf-m-full-size {
+  width: 100%;
+  height: 100%;
+}
+.pf-v5-screen-reader.pf-m-absolute {
+  position: absolute;
+}
+
+.pf-v5-m-tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pf-v5-m-vf-font {
+  --pf-v5-global--FontFamily--text: var(--pf-v5-global--FontFamily--text--vf);
+  --pf-v5-global--FontFamily--heading: var(--pf-v5-global--FontFamily--heading--vf);
+  --pf-v5-global--FontFamily--monospace: var(--pf-v5-global--FontFamily--monospace--vf);
+}

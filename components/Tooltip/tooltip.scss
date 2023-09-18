@@ -1,0 +1,138 @@
+// @debug $tooltip; // check your variable names located in src/patternfly/sass-utilities/component-namespaces.scss
+
+.#{$tooltip} {
+  // Component variables
+  --#{$tooltip}--MaxWidth: #{pf-size-prem(300px)};
+  --#{$tooltip}--BoxShadow: var(--#{$pf-global}--BoxShadow--md);
+
+  // Content variables
+  --#{$tooltip}__content--PaddingTop: var(--#{$pf-global}--spacer--sm);
+  --#{$tooltip}__content--PaddingRight: var(--#{$pf-global}--spacer--sm);
+  --#{$tooltip}__content--PaddingBottom: var(--#{$pf-global}--spacer--sm);
+  --#{$tooltip}__content--PaddingLeft: var(--#{$pf-global}--spacer--sm);
+  --#{$tooltip}__content--Color: var(--#{$pf-global}--Color--light-100);
+  --#{$tooltip}__content--BackgroundColor: var(--#{$pf-global}--BackgroundColor--dark-100);
+  --#{$tooltip}__content--FontSize: var(--#{$pf-global}--FontSize--sm);
+
+  // Arrow variables
+  --#{$tooltip}__arrow--Width: #{pf-size-prem(15px)};
+  --#{$tooltip}__arrow--Height: #{pf-size-prem(15px)};
+  --#{$tooltip}__arrow--BackgroundColor: var(--#{$pf-global}--BackgroundColor--dark-100);
+  --#{$tooltip}__arrow--BoxShadow: var(--#{$pf-global}--BoxShadow--md);
+  --#{$tooltip}__arrow--m-top--TranslateX: -50%;
+  --#{$tooltip}__arrow--m-top--TranslateY: 50%;
+  --#{$tooltip}__arrow--m-top--Rotate: 45deg;
+  --#{$tooltip}__arrow--m-right--TranslateX: -50%;
+  --#{$tooltip}__arrow--m-right--TranslateY: -50%;
+  --#{$tooltip}__arrow--m-right--Rotate: 45deg;
+  --#{$tooltip}__arrow--m-bottom--TranslateX: -50%;
+  --#{$tooltip}__arrow--m-bottom--TranslateY: -50%;
+  --#{$tooltip}__arrow--m-bottom--Rotate: 45deg;
+  --#{$tooltip}__arrow--m-left--TranslateX: 50%;
+  --#{$tooltip}__arrow--m-left--TranslateY: -50%;
+  --#{$tooltip}__arrow--m-left--Rotate: 45deg;
+
+  position: relative;
+  max-width: var(--#{$tooltip}--MaxWidth);
+  box-shadow: var(--#{$tooltip}--BoxShadow);
+
+  &.pf-m-top,
+  &.pf-m-top-left,
+  &.pf-m-top-right {
+    .#{$tooltip}__arrow {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(var(--#{$tooltip}__arrow--m-top--TranslateX)) translateY(var(--#{$tooltip}__arrow--m-top--TranslateY)) rotate(var(--#{$tooltip}__arrow--m-top--Rotate));
+    }
+  }
+
+  &.pf-m-bottom,
+  &.pf-m-bottom-left,
+  &.pf-m-bottom-right {
+    .#{$tooltip}__arrow {
+      top: 0;
+      left: 50%;
+      transform: translateX(var(--#{$tooltip}__arrow--m-bottom--TranslateX)) translateY(var(--#{$tooltip}__arrow--m-bottom--TranslateY)) rotate(var(--#{$tooltip}__arrow--m-bottom--Rotate));
+    }
+  }
+
+  &.pf-m-left,
+  &.pf-m-left-top,
+  &.pf-m-left-bottom {
+    .#{$tooltip}__arrow {
+      top: 50%;
+      right: 0;
+      transform: translateX(var(--#{$tooltip}__arrow--m-left--TranslateX)) translateY(var(--#{$tooltip}__arrow--m-left--TranslateY)) rotate(var(--#{$tooltip}__arrow--m-left--Rotate));
+    }
+  }
+
+  &.pf-m-right,
+  &.pf-m-right-top,
+  &.pf-m-right-bottom {
+    .#{$tooltip}__arrow {
+      top: 50%;
+      left: 0;
+      transform: translateX(var(--#{$tooltip}__arrow--m-right--TranslateX)) translateY(var(--#{$tooltip}__arrow--m-right--TranslateY)) rotate(var(--#{$tooltip}__arrow--m-right--Rotate));
+    }
+  }
+
+  &.pf-m-left-top,
+  &.pf-m-right-top {
+    .#{$tooltip}__arrow {
+      top: var(--#{$tooltip}__arrow--Height);
+    }
+  }
+
+  &.pf-m-left-bottom,
+  &.pf-m-right-bottom {
+    .#{$tooltip}__arrow {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  &.pf-m-top-left,
+  &.pf-m-bottom-left {
+    .#{$tooltip}__arrow {
+      left: var(--#{$tooltip}__arrow--Width);
+    }
+  }
+
+  &.pf-m-top-right,
+  &.pf-m-bottom-right {
+    .#{$tooltip}__arrow {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.#{$tooltip}__content {
+  position: relative;
+  padding: var(--#{$tooltip}__content--PaddingTop) var(--#{$tooltip}__content--PaddingRight) var(--#{$tooltip}__content--PaddingBottom) var(--#{$tooltip}__content--PaddingLeft);
+  font-size: var(--#{$tooltip}__content--FontSize);
+  color: var(--#{$tooltip}__content--Color);
+  text-align: center;
+  word-break: break-word;
+  background-color: var(--#{$tooltip}__content--BackgroundColor);
+
+  &.pf-m-text-align-left {
+    text-align: left;
+  }
+}
+
+.#{$tooltip}__arrow {
+  position: absolute;
+  width: var(--#{$tooltip}__arrow--Width);
+  height: var(--#{$tooltip}__arrow--Height);
+  pointer-events: none;
+  background-color: var(--#{$tooltip}__arrow--BackgroundColor);
+  box-shadow: var(--#{$tooltip}__arrow--BoxShadow);
+}
+
+// stylelint-disable no-invalid-position-at-import-rule
+@import "themes/dark/tooltip";
+
+@include pf-v5-theme-dark {
+  @include pf-v5-theme-dark-tooltip;
+}
